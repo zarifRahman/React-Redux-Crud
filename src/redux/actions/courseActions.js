@@ -7,8 +7,6 @@ import React from "react";
 // ];
 // course.find((c) => c.id === 2); // output {id: 2, title: "Course 2"}
 
-const createCourse = (course) => {
+export function createCourse(course) {
   return { type: "CREATE_COURSE", course: course };
-};
-
-export default createCourse;
+}
