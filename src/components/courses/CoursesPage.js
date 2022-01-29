@@ -31,19 +31,24 @@ class CoursesPage extends React.Component {
           value={this.state.course.title}
         />
         <input type="submit" value="Save" />
+        {/* This component has courses array from state */}
+        {this.props.courses.map((course) => (
+          <div key={course.title}>{course.title}</div>
+        ))}
       </form>
     );
   }
 }
 CoursesPage.propTypes = {
   dispatch: PropTypes.func.isRequired,
+  courses: PropTypes.array.isRequired,
 };
 
 // connect connects our components with redux
 // ownProps refers to component ownProps
 function mapStateToProps(state) {
   return {
-    course: state.course,
+    courses: state.courses,
   };
 }
 
