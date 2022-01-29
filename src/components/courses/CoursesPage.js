@@ -16,9 +16,9 @@ class CoursesPage extends React.Component {
   };
   handleSubmit = (event) => {
     event.preventDefault();
-    debugger;
+    // debugger;
     // automatically adds dispatch
-    this.props.dispatch(courseActions.createCourse(this.state.course));
+    this.props.createCourse(this.state.course);
   };
 
   render() {
@@ -41,16 +41,22 @@ class CoursesPage extends React.Component {
   }
 }
 CoursesPage.propTypes = {
-  dispatch: PropTypes.func.isRequired,
+  // dispatch: PropTypes.func.isRequired,
+  createCourse: PropTypes.func.isRequired,
   courses: PropTypes.array.isRequired,
 };
 
 // connect connects our components with redux
 // ownProps refers to component ownProps
 function mapStateToProps(state) {
-  debugger;
+  // debugger;
   return {
     courses: state.courses,
+  };
+}
+function mapDispatchToProps(dispatch) {
+  return {
+    createCourse: (course) => dispatch(courseActions.createCourse(course)),
   };
 }
 

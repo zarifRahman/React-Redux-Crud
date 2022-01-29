@@ -5,7 +5,7 @@ const defaultState = [];
 const courseReducer = (state = defaultState, action) => {
   switch (action.type) {
     case "CREATE_COURSE":
-      debugger;
+      // debugger;
       // add the course that is paased in action
       return [...state, { ...action.course }];
     default:
