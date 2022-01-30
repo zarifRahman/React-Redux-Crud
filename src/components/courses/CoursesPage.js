@@ -4,40 +4,17 @@ import * as courseActions from "../../redux/actions/courseActions";
 import PropTypes from "prop-types";
 import { bindActionCreators } from "redux";
 
+// coursePage will be a container component
 class CoursesPage extends React.Component {
-  state = {
-    course: {
-      title: "",
-    },
-  };
-  handleChange = (event) => {
-    // event.preventDefault();
-    const course = { ...this.state.course, title: event.target.value };
-    this.setState({ course: course });
-  };
-  handleSubmit = (event) => {
-    event.preventDefault();
-    // debugger;
-    // automatically adds dispatch
-    this.props.actions.createCourse(this.state.course);
-  };
-
   render() {
     return (
-      <form onSubmit={this.handleSubmit}>
+      <>
         <h2>Courses</h2>
-        <h3>Add Course</h3>
-        <input
-          type="text"
-          onChange={this.handleChange}
-          value={this.state.course.title}
-        />
-        <input type="submit" value="Save" />
-        {/* This component has courses array from state */}
+        {/*  This component has courses array from state */}
         {this.props.courses.map((course) => (
           <div key={course.title}>{course.title}</div>
         ))}
-      </form>
+      </>
     );
   }
 }
